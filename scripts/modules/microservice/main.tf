@@ -106,10 +106,6 @@ resource "kubernetes_deployment" "service_deployment" {
                         }
                     }
                }
-
-                image_pull_secrets {
-                    name = kubernetes_secret.docker_credentials.metadata[0].name
-                }
             }
         }
     }
