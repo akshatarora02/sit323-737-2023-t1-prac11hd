@@ -1,5 +1,5 @@
 
-describe("flixtube front end", () => {
+describe("newtube front end", () => {
 
     it("can list videos", () => {
 
