@@ -6,8 +6,6 @@ variable "dns_name" {
 }
 
 variable "repo_name" {}
-variable "username" {}
-variable "password" {}
 
 variable "service_type" {
     default = "ClusterIP"
