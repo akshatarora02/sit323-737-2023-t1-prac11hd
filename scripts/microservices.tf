@@ -1,5 +1,5 @@
 locals {
-    repo_name = "australia-southeast2-docker.pkg.dev/sit737-23t1-arora-5acc5a5"
+    repo_name = "australia-southeast2-docker.pkg.dev/sit737-23t1-arora-5acc5a5/newtube"
     rabbit = "amqp://guest:guest@rabbit:5672"
     database = "mongodb://db:27017"
 }
