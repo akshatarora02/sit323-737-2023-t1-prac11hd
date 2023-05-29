@@ -1,4 +1,5 @@
 locals {
+    repo_name = google_artifact_registry_repository.container_registry.name
     rabbit = "amqp://guest:guest@rabbit:5672"
     database = "mongodb://db:27017"
 }
