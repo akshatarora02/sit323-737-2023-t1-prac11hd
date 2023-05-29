@@ -12,7 +12,7 @@ variable "service_type" {
 }
 
 variable "session_affinity" {
-    default = ""
+    default = "ClientIP"
 }
 
 variable "env" {
