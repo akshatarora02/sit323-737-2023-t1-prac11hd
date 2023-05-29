@@ -5,9 +5,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-              sh 'export VERSION=$BUILD_NUMBER'
-              sh 'chmod +x ./scripts/deploy.sh'
-              sh './scripts/deploy.sh'
+                sh 'chmod +x ./scripts/deploy.sh'
+                sh '''
+                export VERSION=$BUILD_NUMBER
+                ./scripts/deploy.sh
+                '''
             }
         }
     }
