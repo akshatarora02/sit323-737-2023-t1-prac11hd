@@ -5,7 +5,9 @@ variable "dns_name" {
     default = ""
 }
 
-variable "repo_name" {}
+variable "repo_name" {
+    default = "australia-southeast2-docker.pkg.dev/sit737-23t1-arora-5acc5a5/"
+}
 
 variable "service_type" {
     default = "ClusterIP"
