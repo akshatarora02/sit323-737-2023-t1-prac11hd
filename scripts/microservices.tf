@@ -42,10 +42,6 @@ module "video-storage-microservice" {
     dns_name = "video-storage"
     repo_name = local.repo_name
     app_version = var.app_version
-    env = {
-        STORAGE_ACCOUNT_NAME = var.storage_account_name
-        STORAGE_ACCESS_KEY = var.storage_access_key
-    }
 }
 
 module "metadata-microservice" {
