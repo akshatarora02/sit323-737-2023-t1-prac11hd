@@ -5,6 +5,11 @@ const path = require("path");
 const app = express();
 
 const storagePath = path.join(__dirname, "../storage");
+
+if (!fs.existsSync(storagePath)) {
+    fs.mkdirSync(storagePath, { recursive: true });
+  }
+  
 console.log(`Storing files at ${storagePath}.`);
 
 //
