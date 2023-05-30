@@ -1,14 +1,27 @@
-
 describe("newtube front end", () => {
 
     it("can list videos", () => {
 
+        // Create a sample user
+        cy.request("POST", "/signup", {
+            email: "sampleuser@example.com",
+            password: "password123"
+        });
+
+        // Log in as the sample user
+        cy.request("POST", "/login", {
+            email: "sampleuser",
+            password: "password123"
+        }).then((response) => {
+            const { token } = response.body;
+            // Save the token for subsequent requests
+            Cypress.env("token", token);
+        });
+
+        cy.visit("/landing");
         // Load the fixture named "two-videos" into the database "metadata".
         cy.loadFixture("metadata", "two-videos");
         
-        // Visit the web page.
-        cy.visit("/");
-
         // Check that we have two items in the video list.
         cy.get("#video-list").find("div").should("have.length", 2);
 

@@ -57,6 +57,8 @@ services:
       - PORT=80
       - RABBIT=amqp://guest:guest@rabbit:5672
       - NODE_ENV=development
+      - DBHOST=mongodb://db:27017
+      - DBNAME=usersDB
     depends_on:
       - rabbit
     restart: "no"
