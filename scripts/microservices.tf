@@ -26,9 +26,6 @@ module "video-upload-microservice" {
     service_name = "video-upload"
     repo_name = local.repo_name
     app_version = var.app_version
-    env = {
-        RABBIT: local.rabbit
-    }
 }
 
 module "video-storage-microservice" {
@@ -43,10 +40,5 @@ module "metadata-microservice" {
     service_name = "metadata"
     repo_name = local.repo_name
     app_version = var.app_version
-    env = {
-        RABBIT: local.rabbit
-        DBHOST: local.database
-        DBNAME: "metadata"
-    }
 }
 
