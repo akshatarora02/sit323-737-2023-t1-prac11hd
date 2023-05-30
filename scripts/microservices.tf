@@ -7,13 +7,8 @@ locals {
 module "gateway-microservice" {
     source ="./modules/microservice"
     service_name = "gateway"
-    service_type = "LoadBalancer"
-    session_affinity = "ClientIP"
     repo_name = local.repo_name
     app_version = var.app_version
-    env = {
-        RABBIT: local.rabbit
-    }
 }
 
 module "video-streaming-microservice" {
@@ -39,7 +34,6 @@ module "video-upload-microservice" {
 module "video-storage-microservice" {
     source ="./modules/microservice"
     service_name = "video-storage"
-    dns_name = "video-storage"
     repo_name = local.repo_name
     app_version = var.app_version
 }
