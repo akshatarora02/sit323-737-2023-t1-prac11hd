@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Build and Push') {
+
+        stage('Deploy') {
             steps {
                 sh 'chmod +x ./scripts/deploy.sh'
-                sh 'cd metadata && npm install && npm test'
                 sh '''
                 export VERSION=$BUILD_NUMBER
                 ./scripts/deploy.sh

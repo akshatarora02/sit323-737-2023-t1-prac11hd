@@ -9,6 +9,10 @@ variable location {
   default = "australia-southeast2"
 }
 
+variable admin_username {
+  default = "linux_admin"
+}
+
 variable "bucket-name" {
   type        = string
   description = "The name of the Google Storage Bucket to create"

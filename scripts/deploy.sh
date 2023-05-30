@@ -1,6 +1,7 @@
 #
 # Runs Terraform to provision a Kubernetes cluster and deploy microservices to it.
 #
+
 set -e
 cd ./metadata
 npm install

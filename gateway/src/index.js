@@ -197,7 +197,7 @@ function setupHandlers(app) {
             url: `/api/video?id=${videoId}`,
           };
 
-          res.render("play-video", { video });
+          res.render("play-video", { video,email: req.user.email });
         });
 
         response.on("error", (err) => {
@@ -213,7 +213,7 @@ function setupHandlers(app) {
   // Web page to upload a new video.
   //
   app.get("/upload", isLoggedIn, (req, res) => {
-    res.render("upload-video", {});
+    res.render("upload-video", {email: req.user.email});
   });
 
   //
