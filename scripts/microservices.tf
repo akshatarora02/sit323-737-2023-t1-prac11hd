@@ -16,9 +16,6 @@ module "video-streaming-microservice" {
     service_name = "video-streaming"
     repo_name = local.repo_name
     app_version = var.app_version
-    env = {
-        RABBIT: local.rabbit
-    }
 }
 
 module "video-upload-microservice" {
