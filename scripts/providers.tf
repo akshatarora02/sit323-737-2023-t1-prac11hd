@@ -7,7 +7,6 @@ provider "google" {
 data "google_client_config" "default" {}
 
 provider "kubernetes" {
-  config_path = data.external.kubeconfig.result.kubeconfig_path
   host  = google_container_cluster.cluster.endpoint
   token = data.google_client_config.default.access_token
   cluster_ca_certificate = base64decode(

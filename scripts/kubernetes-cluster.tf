@@ -27,6 +27,8 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
     ]
   }
 }
-output "kubeconfig" {
-  value = google_container_cluster.cluster.master_auth[0].endpoint
+resource "kubernetes_namespace" "monitoring" {
+  metadata {
+        name = "monitoring"
+  }
 }
