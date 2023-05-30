@@ -21,7 +21,19 @@ resource "null_resource" "docker_build" {
         command = "docker build -t ${local.image_tag} --file ../${var.service_name}/Dockerfile-dev ../${var.service_name}"
     }
 }
+resource "null_resource" "docker_login" {
 
+    depends_on = [ null_resource.docker_build ]
+
+    triggers = {
+        always_run = timestamp()
+    }
+
+    provisioner "local-exec" {
+        command = "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://australia-southeast1-docker.pkg.dev"
+        
+        }
+}
 resource "null_resource" "docker_push" {
 
     depends_on = [ null_resource.docker_login ]
