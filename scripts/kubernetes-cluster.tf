@@ -26,7 +26,6 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
-}
 output "kubeconfig" {
-  value = google_container_cluster.cluster.master_auth[0].kubeconfig
+  value = google_container_cluster.cluster.master_auth[0].endpoint
 }
