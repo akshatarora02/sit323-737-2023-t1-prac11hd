@@ -8,10 +8,6 @@ terraform {
 
 provider "helm" {}
 
-provider "kubernetes" {
-  config_path = data.external.kubeconfig.result.kubeconfig_path
-}
-
 data "external" "kubeconfig" {
   program = ["cat", "${path.module}/kubeconfig.txt"]
 }
