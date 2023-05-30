@@ -1,13 +1,20 @@
 terraform {
   required_providers {
     helm = {
-      source = "hashicorp/helm"
       version = "2.0.2"
     }
   }
 }
 
 provider "helm" {}
+
+provider "kubernetes" {
+  config_path = data.external.kubeconfig.result.kubeconfig_path
+}
+
+data "external" "kubeconfig" {
+  program = ["cat", "${path.module}/kubeconfig.txt"]
+}
 
 resource "helm_release" "prometheus" {
   name       = "prometheus"
